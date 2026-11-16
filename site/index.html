@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adınız Soyadınız</title>
+  <style>
+    :root {
+      --arka: #f7f7f5;
+      --kart: #ffffff;
+      --yazi: #1f2328;
+      --soluk: #5f6670;
+      --vurgu: #2563eb;
+      --cizgi: #e3e4e8;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --arka: #15171a;
+        --kart: #1e2125;
+        --yazi: #e8eaed;
+        --soluk: #9aa0a8;
+        --vurgu: #6ea0ff;
+        --cizgi: #2e3238;
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--arka);
+      color: var(--yazi);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 64px 16px 32px;
+    }
+
+    header { margin-bottom: 48px; }
+
+    h1 {
+      font-size: 2.25rem;
+      margin: 0 0 4px;
+      letter-spacing: -0.02em;
+    }
+
+    .unvan {
+      margin: 0;
+      color: var(--soluk);
+      font-size: 1.1rem;
+    }
+
+    h2 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--soluk);
+      margin: 0 0 16px;
+    }
+
+    section { margin-bottom: 48px; }
+
+    .projeler {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .proje {
+      background: var(--kart);
+      border: 1px solid var(--cizgi);
+      border-radius: 10px;
+      padding: 16px 20px;
+    }
+
+    .proje h3 {
+      margin: 0 0 4px;
+      font-size: 1.05rem;
+    }
+
+    .proje p {
+      margin: 0;
+      color: var(--soluk);
+    }
+
+    .proje a {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.9rem;
+    }
+
+    a { color: var(--vurgu); }
+
+    footer {
+      border-top: 1px solid var(--cizgi);
+      padding-top: 16px;
+      color: var(--soluk);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Adınız Soyadınız</h1>
+      <p class="unvan">Unvanınız (örneğin: Yazılım meraklısı)</p>
+    </header>
+
+    <section>
+      <h2>Hakkımda</h2>
+      <p>
+        Buraya kendinizi tanıtan kısa bir yazı gelecek. Ne iş yaptığınızı,
+        nelerle ilgilendiğinizi ve şu sıralar neler öğrendiğinizi
+        iki üç cümleyle anlatabilirsiniz.
+      </p>
+    </section>
+
+    <section>
+      <h2>Projelerim</h2>
+      <ul class="projeler">
+        <li class="proje">
+          <h3>dosya_say.py</h3>
+          <p>Bir klasördeki dosyaları alt klasörlerle birlikte uzantılarına göre sayıp ekrana yazan küçük bir Python betiği.</p>
+        </li>
+        <li class="proje">
+          <h3>Proje 2</h3>
+          <p>Projenin ne işe yaradığını anlatan kısa bir açıklama.</p>
+          <a href="#">Projeye git →</a>
+        </li>
+        <li class="proje">
+          <h3>Proje 3</h3>
+          <p>Projenin ne işe yaradığını anlatan kısa bir açıklama.</p>
+          <a href="#">Projeye git →</a>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      © 2026 Adınız Soyadınız · <a href="mailto:ornek@eposta.com">ornek@eposta.com</a>
+    </footer>
+  </main>
+</body>
+</html>
