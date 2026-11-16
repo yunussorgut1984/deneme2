@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog · Yunus S.</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050805'/%3E%3Cpath d='M32 6 54 19v26L32 58 10 45V19z' fill='none' stroke='%2322c55e' stroke-width='4'/%3E%3Ctext x='32' y='40' font-family='monospace' font-size='20' font-weight='700' fill='%2322c55e' text-anchor='middle'%3EYS%3C/text%3E%3C/svg%3E">
+  <!--
+    NOT: Bu sayfadaki eğitim, dil, deneyim ve referans bilgileri ÖRNEKTİR.
+    Referanslardaki firmalar ve kişiler uydurmadır; gerçek bilgilerinizle değiştirin.
+  -->
+  <style>
+    :root {
+      color-scheme: dark;
+      --arka: #070a08;
+      --kart: #0e1510;
+      --yazi: #e4f1e7;
+      --soluk: #8aa694;
+      --vurgu: #22c55e;
+      --vurgu-acik: #4ade80;
+      --cizgi: #1c2e22;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--arka);
+      color: var(--yazi);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 16px;
+    }
+
+    a { color: var(--vurgu-acik); }
+
+    nav {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+      font-family: ui-monospace, Consolas, monospace;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      color: var(--soluk);
+      text-decoration: none;
+      padding: 6px 12px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+    }
+
+    nav a:hover { color: var(--vurgu-acik); border-color: var(--cizgi); }
+
+    nav a[aria-current="page"] {
+      color: var(--vurgu-acik);
+      border-color: var(--vurgu);
+    }
+
+    .baslik {
+      border: 1px solid var(--cizgi);
+      border-radius: 14px;
+      padding: 28px 24px;
+      margin-bottom: 40px;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(34, 197, 94, 0.18), transparent 55%),
+        linear-gradient(135deg, #030503, #0b1a10);
+    }
+
+    .baslik .komut {
+      font-family: ui-monospace, Consolas, monospace;
+      color: var(--vurgu-acik);
+      font-size: 0.9rem;
+      margin: 0 0 8px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin: 0 0 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .baslik p:last-child { margin: 0; color: var(--soluk); }
+
+    .ornek-uyari {
+      font-size: 0.85rem;
+      color: var(--soluk);
+      border: 1px dashed var(--cizgi);
+      border-radius: 8px;
+      padding: 8px 12px;
+      margin: -24px 0 40px;
+    }
+
+    section { margin-bottom: 48px; }
+
+    h2 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--vurgu);
+      margin: 0 0 16px;
+    }
+
+    h2::before { content: "// "; opacity: 0.6; }
+
+    .kart {
+      background: var(--kart);
+      border: 1px solid var(--cizgi);
+      border-radius: 10px;
+      padding: 16px 20px;
+    }
+
+    h3 {
+      margin: 0 0 2px;
+      font-size: 1.05rem;
+    }
+
+    .meta {
+      margin: 0 0 6px;
+      font-family: ui-monospace, Consolas, monospace;
+      font-size: 0.85rem;
+      color: var(--vurgu-acik);
+    }
+
+    .kart p:last-child { margin: 0; color: var(--soluk); }
+
+    /* Eğitim zaman çizelgesi */
+    .zaman {
+      list-style: none;
+      margin: 0;
+      padding: 0 0 0 24px;
+      border-left: 2px solid var(--cizgi);
+      display: grid;
+      gap: 16px;
+    }
+
+    .zaman li { position: relative; }
+
+    .zaman li::before {
+      content: "";
+      position: absolute;
+      left: -32px;
+      top: 22px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--arka);
+      border: 2px solid var(--vurgu);
+    }
+
+    .zaman li:first-child::before { background: var(--vurgu); }
+
+    /* Diller */
+    .diller {
+      display: grid;
+      gap: 12px;
+    }
+
+    .dil-ust {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .dil-ust span { font-family: ui-monospace, Consolas, monospace; color: var(--vurgu-acik); font-size: 0.9rem; }
+
+    .cubuk {
+      height: 8px;
+      border-radius: 4px;
+      background: var(--cizgi);
+      overflow: hidden;
+    }
+
+    .cubuk div {
+      height: 100%;
+      background: linear-gradient(90deg, #15803d, var(--vurgu-acik));
+      border-radius: 4px;
+    }
+
+    /* Projeler */
+    .liste { display: grid; gap: 12px; }
+
+    .kart.proje { border-left: 3px solid var(--vurgu); }
+
+    .etiketler { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+
+    .etiketler span {
+      font-family: ui-monospace, Consolas, monospace;
+      font-size: 0.75rem;
+      color: var(--vurgu-acik);
+      border: 1px solid var(--cizgi);
+      border-radius: 999px;
+      padding: 2px 10px;
+    }
+
+    /* Referanslar */
+    .referanslar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .referans { display: flex; flex-direction: column; gap: 12px; }
+
+    .firma {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .firma svg { width: 44px; height: 44px; flex-shrink: 0; }
+
+    .firma strong { display: block; }
+
+    .firma small { color: var(--soluk); }
+
+    .referans blockquote {
+      margin: 0;
+      color: var(--soluk);
+      font-style: italic;
+      border-left: 2px solid var(--vurgu);
+      padding-left: 12px;
+    }
+
+    .referans .kisi { font-size: 0.9rem; margin: 0; }
+
+    footer {
+      border-top: 1px solid var(--cizgi);
+      padding-top: 16px;
+      color: var(--soluk);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav aria-label="Sayfalar">
+      <a href="index.html">~/ana-sayfa</a>
+      <a href="blog.html" aria-current="page">~/blog</a>
+    </nav>
+
+    <div class="baslik">
+      <p class="komut">$ cat egitim-hayatim.md</p>
+      <h1>Eğitim Hayatım</h1>
+      <p>Okul yıllarımdan bugüne öğrendiklerim, konuştuğum diller, üzerinde çalıştığım projeler ve benimle çalışmış kişilerin görüşleri.</p>
+    </div>
+
+    <p class="ornek-uyari">Not: Bu sayfadaki eğitim, dil ve referans bilgileri şimdilik örnek içeriktir; referanslardaki firmalar ve kişiler hayalidir.</p>
+
+    <section>
+      <h2>Eğitim</h2>
+      <ul class="zaman">
+        <li class="kart">
+          <h3>Bilgisayar Mühendisliği (Lisans)</h3>
+          <p class="meta">Örnek Üniversitesi · 2020 – 2024</p>
+          <p>Algoritmalar, veri yapıları, veritabanı sistemleri ve web programlama derslerine ağırlık verdim. Bitirme projesinde dosya yönetimini otomatikleştiren bir masaüstü aracı geliştirdim.</p>
+        </li>
+        <li class="kart">
+          <h3>Yazılım Geliştirme Sertifika Programı</h3>
+          <p class="meta">Örnek Akademi · 2023</p>
+          <p>Python, Git ve temel web teknolojileri (HTML, CSS) üzerine 120 saatlik uygulamalı eğitim.</p>
+        </li>
+        <li class="kart">
+          <h3>Fen Lisesi</h3>
+          <p class="meta">Örnek Fen Lisesi · 2016 – 2020</p>
+          <p>Matematik ve fen ağırlıklı eğitim aldım; okulun robotik kulübünde ilk kodlarımı yazdım.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Yabancı Diller</h2>
+      <div class="diller">
+        <div class="kart">
+          <div class="dil-ust"><strong>Türkçe</strong><span>Ana dil</span></div>
+          <div class="cubuk"><div style="width: 100%"></div></div>
+        </div>
+        <div class="kart">
+          <div class="dil-ust"><strong>İngilizce</strong><span>C1 · İleri</span></div>
+          <div class="cubuk"><div style="width: 85%"></div></div>
+        </div>
+        <div class="kart">
+          <div class="dil-ust"><strong>Almanca</strong><span>A2 · Temel</span></div>
+          <div class="cubuk"><div style="width: 35%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Proje Tecrübeleri</h2>
+      <div class="liste">
+        <div class="kart proje">
+          <h3>Kişisel Web Sitesi</h3>
+          <p class="meta">2026 · HTML, CSS</p>
+          <p>Dış kütüphane kullanmadan, tek dosyadan oluşan ve GitHub Pages'te yayınlanan bu siteyi tasarladım ve geliştirdim.</p>
+          <div class="etiketler"><span>HTML</span><span>CSS</span><span>SVG</span><span>GitHub Pages</span></div>
+        </div>
+        <div class="kart proje">
+          <h3>Dosya Düzenleyici</h3>
+          <p class="meta">2026 · Python</p>
+          <p>Klasördeki dosyaları türüne göre ayıran, aynı isimli dosyaları üzerine yazmadan yeniden adlandıran bir Python aracı.</p>
+          <div class="etiketler"><span>Python</span><span>pathlib</span><span>Otomasyon</span></div>
+        </div>
+        <div class="kart proje">
+          <h3>dosya_say.py</h3>
+          <p class="meta">2026 · Python</p>
+          <p>Bir klasördeki dosyaları alt klasörlerle birlikte uzantılarına göre sayıp raporlayan komut satırı betiği.</p>
+          <div class="etiketler"><span>Python</span><span>CLI</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Referanslar</h2>
+      <div class="referanslar">
+
+        <div class="kart referans">
+          <div class="firma">
+            <!-- Hayali firma logosu: Yeşilkod Yazılım -->
+            <svg viewBox="0 0 48 48" role="img" aria-label="Yeşilkod Yazılım logosu">
+              <rect width="48" height="48" rx="10" fill="#0b1a10" stroke="#22c55e" stroke-opacity="0.4"/>
+              <path d="M18 16 10 24l8 8M30 16l8 8-8 8" fill="none" stroke="#4ade80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M27 13 21 35" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            <div><strong>Yeşilkod Yazılım</strong><small>Web ve mobil uygulamalar</small></div>
+          </div>
+          <blockquote>“Verilen görevleri zamanında ve temiz kodla teslim etti, ekibe hızla uyum sağladı.”</blockquote>
+          <p class="kisi">Ayşe K. · Yazılım Ekip Lideri</p>
+        </div>
+
+        <div class="kart referans">
+          <div class="firma">
+            <!-- Hayali firma logosu: Altıgen Teknoloji -->
+            <svg viewBox="0 0 48 48" role="img" aria-label="Altıgen Teknoloji logosu">
+              <rect width="48" height="48" rx="10" fill="#0b1a10" stroke="#22c55e" stroke-opacity="0.4"/>
+              <path d="M24 8 38 16v16L24 40 10 32V16z" fill="none" stroke="#4ade80" stroke-width="2.5"/>
+              <path d="M24 16 31 20v8l-7 4-7-4v-8z" fill="#22c55e"/>
+            </svg>
+            <div><strong>Altıgen Teknoloji</strong><small>Bulut ve altyapı çözümleri</small></div>
+          </div>
+          <blockquote>“Staj süresince otomasyon betikleriyle ekibimizin günlük işlerini ciddi ölçüde hızlandırdı.”</blockquote>
+          <p class="kisi">Mehmet D. · Sistem Yöneticisi</p>
+        </div>
+
+        <div class="kart referans">
+          <div class="firma">
+            <!-- Hayali firma logosu: Terminal Lab -->
+            <svg viewBox="0 0 48 48" role="img" aria-label="Terminal Lab logosu">
+              <rect width="48" height="48" rx="10" fill="#0b1a10" stroke="#22c55e" stroke-opacity="0.4"/>
+              <path d="M12 17l8 7-8 7" fill="none" stroke="#4ade80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="23" y="29" width="13" height="3" rx="1.5" fill="#22c55e"/>
+            </svg>
+            <div><strong>Terminal Lab</strong><small>Yazılım eğitimi ve danışmanlık</small></div>
+          </div>
+          <blockquote>“Öğrenmeye çok açık; sorduğu sorular ve getirdiği çözümlerle sınıfın öne çıkan isimlerindendi.”</blockquote>
+          <p class="kisi">Zeynep A. · Eğitmen</p>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Yunus S. · <a href="index.html">Ana sayfaya dön</a>
+    </footer>
+  </main>
+</body>
+</html>
